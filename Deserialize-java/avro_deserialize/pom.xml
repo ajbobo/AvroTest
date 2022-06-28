@@ -9,7 +9,7 @@
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
-        <avro.version>1.8.1</avro.version>
+        <avro.version>1.11.0</avro.version>
         <tomcat.version>9.0.43</tomcat.version>
     </properties>
 

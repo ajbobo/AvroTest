@@ -5,17 +5,77 @@
  */
 package AvroTest;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
+import org.apache.avro.message.BinaryMessageEncoder;
+import org.apache.avro.message.BinaryMessageDecoder;
+import org.apache.avro.message.SchemaStore;
 
-@SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Object1 extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -3306307251940757511L;
+
+
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Object1\",\"namespace\":\"AvroTest\",\"fields\":[{\"name\":\"intVal_1\",\"type\":\"int\"},{\"name\":\"floatVal\",\"type\":\"float\"},{\"name\":\"intVal_2\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
-  @Deprecated public int intVal_1;
-  @Deprecated public float floatVal;
-  @Deprecated public int intVal_2;
+
+  private static final SpecificData MODEL$ = new SpecificData();
+
+  private static final BinaryMessageEncoder<Object1> ENCODER =
+      new BinaryMessageEncoder<Object1>(MODEL$, SCHEMA$);
+
+  private static final BinaryMessageDecoder<Object1> DECODER =
+      new BinaryMessageDecoder<Object1>(MODEL$, SCHEMA$);
+
+  /**
+   * Return the BinaryMessageEncoder instance used by this class.
+   * @return the message encoder used by this class
+   */
+  public static BinaryMessageEncoder<Object1> getEncoder() {
+    return ENCODER;
+  }
+
+  /**
+   * Return the BinaryMessageDecoder instance used by this class.
+   * @return the message decoder used by this class
+   */
+  public static BinaryMessageDecoder<Object1> getDecoder() {
+    return DECODER;
+  }
+
+  /**
+   * Create a new BinaryMessageDecoder instance for this class that uses the specified {@link SchemaStore}.
+   * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
+   * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
+   */
+  public static BinaryMessageDecoder<Object1> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<Object1>(MODEL$, SCHEMA$, resolver);
+  }
+
+  /**
+   * Serializes this Object1 to a ByteBuffer.
+   * @return a buffer holding the serialized data for this instance
+   * @throws java.io.IOException if this instance could not be serialized
+   */
+  public java.nio.ByteBuffer toByteBuffer() throws java.io.IOException {
+    return ENCODER.encode(this);
+  }
+
+  /**
+   * Deserializes a Object1 from a ByteBuffer.
+   * @param b a byte buffer holding serialized data for an instance of this class
+   * @return a Object1 instance decoded from the given buffer
+   * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
+   */
+  public static Object1 fromByteBuffer(
+      java.nio.ByteBuffer b) throws java.io.IOException {
+    return DECODER.decode(b);
+  }
+
+  private int intVal_1;
+  private float floatVal;
+  private int intVal_2;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -36,6 +96,7 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
     this.intVal_2 = intVal_2;
   }
 
+  public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
@@ -43,7 +104,7 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
     case 0: return intVal_1;
     case 1: return floatVal;
     case 2: return intVal_2;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -54,7 +115,7 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
     case 0: intVal_1 = (java.lang.Integer)value$; break;
     case 1: floatVal = (java.lang.Float)value$; break;
     case 2: intVal_2 = (java.lang.Integer)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -62,15 +123,16 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'intVal_1' field.
    * @return The value of the 'intVal_1' field.
    */
-  public java.lang.Integer getIntVal1() {
+  public int getIntVal1() {
     return intVal_1;
   }
+
 
   /**
    * Sets the value of the 'intVal_1' field.
    * @param value the value to set.
    */
-  public void setIntVal1(java.lang.Integer value) {
+  public void setIntVal1(int value) {
     this.intVal_1 = value;
   }
 
@@ -78,15 +140,16 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'floatVal' field.
    * @return The value of the 'floatVal' field.
    */
-  public java.lang.Float getFloatVal() {
+  public float getFloatVal() {
     return floatVal;
   }
+
 
   /**
    * Sets the value of the 'floatVal' field.
    * @param value the value to set.
    */
-  public void setFloatVal(java.lang.Float value) {
+  public void setFloatVal(float value) {
     this.floatVal = value;
   }
 
@@ -94,15 +157,16 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'intVal_2' field.
    * @return The value of the 'intVal_2' field.
    */
-  public java.lang.Integer getIntVal2() {
+  public int getIntVal2() {
     return intVal_2;
   }
+
 
   /**
    * Sets the value of the 'intVal_2' field.
    * @param value the value to set.
    */
-  public void setIntVal2(java.lang.Integer value) {
+  public void setIntVal2(int value) {
     this.intVal_2 = value;
   }
 
@@ -120,7 +184,11 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
    * @return A new Object1 RecordBuilder
    */
   public static AvroTest.Object1.Builder newBuilder(AvroTest.Object1.Builder other) {
-    return new AvroTest.Object1.Builder(other);
+    if (other == null) {
+      return new AvroTest.Object1.Builder();
+    } else {
+      return new AvroTest.Object1.Builder(other);
+    }
   }
 
   /**
@@ -129,12 +197,17 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
    * @return A new Object1 RecordBuilder
    */
   public static AvroTest.Object1.Builder newBuilder(AvroTest.Object1 other) {
-    return new AvroTest.Object1.Builder(other);
+    if (other == null) {
+      return new AvroTest.Object1.Builder();
+    } else {
+      return new AvroTest.Object1.Builder(other);
+    }
   }
 
   /**
    * RecordBuilder for Object1 instances.
    */
+  @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Object1>
     implements org.apache.avro.data.RecordBuilder<Object1> {
 
@@ -144,7 +217,7 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
     }
 
     /**
@@ -155,15 +228,15 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
       super(other);
       if (isValidValue(fields()[0], other.intVal_1)) {
         this.intVal_1 = data().deepCopy(fields()[0].schema(), other.intVal_1);
-        fieldSetFlags()[0] = true;
+        fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
       if (isValidValue(fields()[1], other.floatVal)) {
         this.floatVal = data().deepCopy(fields()[1].schema(), other.floatVal);
-        fieldSetFlags()[1] = true;
+        fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
       if (isValidValue(fields()[2], other.intVal_2)) {
         this.intVal_2 = data().deepCopy(fields()[2].schema(), other.intVal_2);
-        fieldSetFlags()[2] = true;
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
     }
 
@@ -172,7 +245,7 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
      * @param other The existing instance to copy.
      */
     private Builder(AvroTest.Object1 other) {
-            super(SCHEMA$);
+      super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.intVal_1)) {
         this.intVal_1 = data().deepCopy(fields()[0].schema(), other.intVal_1);
         fieldSetFlags()[0] = true;
@@ -191,9 +264,10 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'intVal_1' field.
       * @return The value.
       */
-    public java.lang.Integer getIntVal1() {
+    public int getIntVal1() {
       return intVal_1;
     }
+
 
     /**
       * Sets the value of the 'intVal_1' field.
@@ -229,9 +303,10 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'floatVal' field.
       * @return The value.
       */
-    public java.lang.Float getFloatVal() {
+    public float getFloatVal() {
       return floatVal;
     }
+
 
     /**
       * Sets the value of the 'floatVal' field.
@@ -267,9 +342,10 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'intVal_2' field.
       * @return The value.
       */
-    public java.lang.Integer getIntVal2() {
+    public int getIntVal2() {
       return intVal_2;
     }
+
 
     /**
       * Sets the value of the 'intVal_2' field.
@@ -302,6 +378,7 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Object1 build() {
       try {
         Object1 record = new Object1();
@@ -309,26 +386,85 @@ public class Object1 extends org.apache.avro.specific.SpecificRecordBase impleme
         record.floatVal = fieldSetFlags()[1] ? this.floatVal : (java.lang.Float) defaultValue(fields()[1]);
         record.intVal_2 = fieldSetFlags()[2] ? this.intVal_2 : (java.lang.Integer) defaultValue(fields()[2]);
         return record;
-      } catch (Exception e) {
+      } catch (org.apache.avro.AvroMissingFieldException e) {
+        throw e;
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }
   }
 
-  private static final org.apache.avro.io.DatumWriter
-    WRITER$ = new org.apache.avro.specific.SpecificDatumWriter(SCHEMA$);
+  @SuppressWarnings("unchecked")
+  private static final org.apache.avro.io.DatumWriter<Object1>
+    WRITER$ = (org.apache.avro.io.DatumWriter<Object1>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
     WRITER$.write(this, SpecificData.getEncoder(out));
   }
 
-  private static final org.apache.avro.io.DatumReader
-    READER$ = new org.apache.avro.specific.SpecificDatumReader(SCHEMA$);
+  @SuppressWarnings("unchecked")
+  private static final org.apache.avro.io.DatumReader<Object1>
+    READER$ = (org.apache.avro.io.DatumReader<Object1>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
+  @Override protected boolean hasCustomCoders() { return true; }
+
+  @Override public void customEncode(org.apache.avro.io.Encoder out)
+    throws java.io.IOException
+  {
+    out.writeInt(this.intVal_1);
+
+    out.writeFloat(this.floatVal);
+
+    out.writeInt(this.intVal_2);
+
+  }
+
+  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
+    throws java.io.IOException
+  {
+    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
+    if (fieldOrder == null) {
+      this.intVal_1 = in.readInt();
+
+      this.floatVal = in.readFloat();
+
+      this.intVal_2 = in.readInt();
+
+    } else {
+      for (int i = 0; i < 3; i++) {
+        switch (fieldOrder[i].pos()) {
+        case 0:
+          this.intVal_1 = in.readInt();
+          break;
+
+        case 1:
+          this.floatVal = in.readFloat();
+          break;
+
+        case 2:
+          this.intVal_2 = in.readInt();
+          break;
+
+        default:
+          throw new java.io.IOException("Corrupt ResolvingDecoder.");
+        }
+      }
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
