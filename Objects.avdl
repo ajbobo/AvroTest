@@ -1,0 +1,31 @@
+@namespace("AvroTest")
+// Use Maven to run avro:idl-protocol in order to create code from this file
+protocol AvroTesting {
+
+	record Object1 {
+		int intVal_1;
+		float floatVal;
+		int intVal_2;
+	}
+
+	record Object2 {
+		float floatVal;
+		int someInteger;
+		long someLong;
+	}
+
+	record Object3 {
+		float floatVal;
+		int someInteger = -13;
+		long someLong;
+		// The union is kind of pointless unless there's a default null - Otherwise you can't deserialize Object2->Object3
+		union {null, int} optionalInt = null;
+	}
+
+	record Object4 {
+		float floatVal;
+		int someInteger;
+		long someLong;
+		int optionalInt = 0;
+	}
+}

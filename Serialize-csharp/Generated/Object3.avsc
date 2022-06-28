@@ -1,0 +1,20 @@
+{
+  "type" : "record",
+  "name" : "Object3",
+  "namespace" : "AvroTest",
+  "fields" : [ {
+    "name" : "floatVal",
+    "type" : "float"
+  }, {
+    "name" : "someInteger",
+    "type" : "int",
+    "default" : -13
+  }, {
+    "name" : "someLong",
+    "type" : "long"
+  }, {
+    "name" : "optionalInt",
+    "type" : [ "null", "int" ],
+    "default" : null
+  } ]
+}

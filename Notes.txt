@@ -1,0 +1,24 @@
+**** C# ****
+
+--- STEP 1 ---
+(obj) C# serialization : Object3 [1.2, 3, 4, 5] ==> mpmZPwYICg==
+--- STEP 2 ---
+(newObj) C# serialization : Object3 [1.2, 3, 4, 5] ==> mpmZPwYICg==
+They are the same
+--- STEP 3 ---
+(newObj2) Java serialization : Object3 [1.2, 3, 4, 1] ==> mpmZPwYIAgo=
+They are different
+--- STEP 4 ---
+Exception while serializing object : Object3 [1.2, 3, 4, <null>] ==> Unexpected null value for the object of type 'System.Nullable`1[System.Int32]'. Please check the schema.
+
+
+
+**** Java ****
+
+--- STEP 1 ---
+(obj) Java serialization : Object3 { 1.200, 3, 4, 5 } ==> mpmZPwYIAgo=
+--- STEP 2 ---
+(newObj) Java serialization : Object3 { 1.200, 3, 4, 5 } ==> mpmZPwYIAgo=
+They are the same
+--- STEP 3 ---
+Exception in Step3 with serialized string : mpmZPwYICg== -- java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 2
