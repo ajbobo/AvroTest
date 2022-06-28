@@ -131,8 +131,8 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <?m2e execute onConfiguration,onIncremental?>
-                        <phase>generate-sources</phase>
+                        <!-- <?m2e execute onConfiguration,onIncremental?> -->
+                        <!-- <phase>generate-sources</phase> -->
                         <goals>
                             <goal>idl-protocol</goal>
                         </goals>

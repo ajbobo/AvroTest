@@ -35,9 +35,9 @@ public class Examples {
         }
 
         System.out.println("--- STEP 3 ---");
-        String str = "mpmZPwYICg==";
+        String str = "mpmZPwYICg=="; // This was created by the 1.8.1 C# code
         try {
-            Object3 newObj2 = obj3Deserializer.deserializeString(str); // This was created by the C# code
+            Object3 newObj2 = obj3Deserializer.deserializeString(str); 
             System.out.println(String.format("(newObj2) C# serialization : %s ==> %s", Util.AsString(obj), str));
             if (Util.compareSerializableObjects(obj, newObj2)) {
                 System.out.println("They are the same");

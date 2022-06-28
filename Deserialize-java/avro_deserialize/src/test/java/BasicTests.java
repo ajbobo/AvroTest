@@ -45,6 +45,8 @@ public class BasicTests {
 		}
 	}
 
+	/*************************************************************************************************************/
+
 	@DataProvider
 	public Object[][] provideObject2() {
 		return new Object[][] {
@@ -78,12 +80,14 @@ public class BasicTests {
 		}
 	}
 
+	/*************************************************************************************************************/
+
 	@DataProvider
 	public Object[][] provideObject3() {
 		return new Object[][] {
 				{ new Object3(789.123f, 1919, 1003L, null), "30dFRP4d1g8A" },
 				{ new Object3(789.123f, 1919, 1003L, 494), "30dFRP4d1g8C3Ac=" },
-				// { new Object3(789.123f, 1919, 1003L, 494), "30dFRP4d1g/cBw==" }, // This is the serialized value from the C# code
+				// { new Object3(789.123f, 1919, 1003L, 494), "30dFRP4d1g/cBw==" }, // This is the serialized value from the 1.8.1 C# code
 				{ new Object3(1f, 1919, 10031010101L, 36), "AACAP/4d6sSo3koCSA==" },
 		};
 	}
@@ -141,6 +145,8 @@ public class BasicTests {
 			fail();
 		}
 	}
+
+	/*************************************************************************************************************/
 
 	@DataProvider
 	public Object[][] provideObject4() {
