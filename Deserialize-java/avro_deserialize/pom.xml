@@ -25,6 +25,10 @@
             <version>${avro.version}</version>
             <exclusions>
                 <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
                     <artifactId>commons-collections</artifactId>
                     <groupId>commons-collections</groupId>
                 </exclusion>
@@ -35,6 +39,10 @@
             <artifactId>hadoop-common</artifactId>
             <version>3.3.2</version>
             <exclusions>
+                <exclusion>
+                    <artifactId>jackson-databind</artifactId>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                </exclusion>
                 <exclusion>
                     <artifactId>stax2-api</artifactId>
                     <groupId>org.codehaus.woodstox</groupId>
