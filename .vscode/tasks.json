@@ -2,15 +2,22 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "generate C# code",
+            "label": "Generate C# code",
             "command": "${workspaceFolder}/Serialize-csharp/GenerateCode.ps1",
             "type": "shell",
             "group": "build"
         },
         {
-            "label": "build",
+            "label": "Generate Java code",
+            "command": "mvn avro:idl-protocol -f ${workspaceFolder}/Deserialize-java/avro_deserialize/pom.xml",
+            "type": "shell",
+            "group": "build"
+        },
+        {
+            "label": "Build C# app",
             "command": "dotnet",
             "type": "process",
+            "group": "build",
             "args": [
                 "build",
                 "${workspaceFolder}/Serialize-csharp/Serialize-csharp.csproj",
@@ -20,7 +27,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "publish",
+            "label": "Publish",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -32,7 +39,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "watch",
+            "label": "Watch",
             "command": "dotnet",
             "type": "process",
             "args": [
