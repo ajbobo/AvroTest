@@ -2,8 +2,8 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
             "name": "Launch Java app",
+            "type": "java",
             "request": "launch",
             "mainClass": "Examples"
         },
@@ -11,7 +11,7 @@
             "name": "Launch C# app",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "Build C# app",
             "program": "${workspaceFolder}/Serialize-csharp/bin/Debug/net6.0/Serialize-csharp.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Serialize-csharp",
