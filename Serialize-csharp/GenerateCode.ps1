@@ -1,5 +1,3 @@
-Write-Host 'Microsoft Hadoop Method'
-
 function Publish-Directory
 {
     param (
@@ -25,7 +23,8 @@ $func1 = { param($file) java -jar ..\AvroTools\avro-tools-1.8.1.jar idl2schemata
 Publish-Directory -Activity "Generating Schemata" -FileFilter ..\*.avdl -Func $func1
 
 Write-Host 'Phase2: Auto generating C# classes from Avro schemata'
-$func2 = { param($file) avrogen.exe -s $file .\Generated }
+$func2 = { param($file) avrogen.exe -s $file .\Generated } # Avro official method
+# $func2 = { param($file) ..\AvroTools\Microsoft.Hadoop.Avro.Tools.exe CodeGen /I:"$_" /O:.\Generated >> results.txt } # Microsoft Hadoop method
 # Get-Date > results.txt # Reset the results.txt file
 Publish-Directory -Activity "Generating C# code files" -FileFilter .\Generated\*.avsc -Func $func2
 
