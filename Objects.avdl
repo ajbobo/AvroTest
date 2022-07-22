@@ -1,5 +1,6 @@
 @namespace("AvroTest")
-// Use Maven to run avro:idl-protocol in order to create code from this file
+// Java - Use Maven to run avro:idl-protocol to generate code
+// C# - Use avro-tools and avrogen to generate code
 protocol AvroTesting {
 
 	record Object1 {

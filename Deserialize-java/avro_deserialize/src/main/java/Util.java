@@ -40,7 +40,7 @@ public class Util {
 					res = false;
 			}
 		}
-		catch (org.apache.avro.AvroRuntimeException ex) {
+		catch (org.apache.avro.AvroRuntimeException | java.lang.IndexOutOfBoundsException ex) {
 			// We're at the end of the object's members - we're done
 		}
 		return res;

@@ -17,6 +17,8 @@ function Publish-Directory
     }
 }
 
+Push-Location .\Serialize-csharp
+
 # Ideally, this should use avrogen.exe, too, but that doesn't seem to work with Protocol files
 Write-Host 'Phase1: Auto generating Avro schemata from Avro IDL ...'
 $func1 = { param($file) java -jar ..\AvroTools\avro-tools-1.8.1.jar idl2schemata $file .\Generated }
@@ -26,3 +28,5 @@ Write-Host 'Phase2: Auto generating C# classes from Avro schemata'
 $func2 = { param($file) avrogen.exe -s $file .\Generated }
 # Get-Date > results.txt # Reset the results.txt file
 Publish-Directory -Activity "Generating C# code files" -FileFilter .\Generated\*.avsc -Func $func2
+
+Pop-Location

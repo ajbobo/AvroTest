@@ -127,7 +127,7 @@
                 <version>${avro.version}</version>
                 <configuration>
                     <sourceDirectory>${project.basedir}/../../</sourceDirectory>
-                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+                    <outputDirectory>${project.basedir}/target/generated-sources/main/java/</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
