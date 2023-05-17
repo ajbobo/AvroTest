@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Avro.File;
 using Avro.IO;
 using Avro.Specific;
 
@@ -18,6 +19,15 @@ namespace AvroTest
                 base64 = Convert.ToBase64String(stream.ToArray());
             }
             return base64;
+        }
+
+        public void SerializeToFile(T obj, string filename)
+        {
+            SpecificDatumWriter<T> writer = new SpecificDatumWriter<T>(obj.Schema);
+            DataFileWriter<T> fileWriter = (DataFileWriter<T>)DataFileWriter<T>.OpenWriter(writer, filename);
+            fileWriter.Append(obj);
+            fileWriter.Flush();
+            fileWriter.Close();
         }
 
         public T DeserializeString(string str)

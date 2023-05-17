@@ -38,6 +38,14 @@ namespace AvroTest
             Assert.AreEqual(expected, obj);
         }
 
+        [DataTestMethod]
+        [DynamicData(nameof(ProvideObject1s), DynamicDataSourceType.Method)]
+        public void Object1_SerializeToFile(Object1 obj, string expected)
+        {
+            Serializer<Object1> serializer = new Serializer<Object1>();
+            serializer.SerializeToFile(obj, $"{expected}.txt");
+        }
+
         /******************************************************************************************************/
 
         public static IEnumerable<object[]> ProvideObject2s()
