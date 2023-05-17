@@ -10,7 +10,7 @@ import java.io.File;
 
 class Serializer<T extends SpecificRecordBase> {
 	public String serialize(T obj) throws Exception {
-		// This is the Hadoop AvroSerializer. It's what FindmatchInterface uses.
+		// This is the Hadoop AvroSerializer. It's what FindmatchInterface used to use. (As of 11/5/2022 it doesn't)
 		// There's also one that I wrote in Resolver that uses SpecificDatumWriter<T>
 		AvroSerializer<T> serializer = new AvroSerializer<>(obj.getSchema());
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();

@@ -15,15 +15,31 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>2.0.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
             <version>${avro.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro-mapred</artifactId>
             <version>${avro.version}</version>
             <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
                     <groupId>org.slf4j</groupId>
@@ -60,6 +76,10 @@
                     <groupId>org.slf4j</groupId>
                 </exclusion>
                 <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
                     <artifactId>commons-lang3</artifactId>
                     <groupId>org.apache.commons</groupId>
                 </exclusion>
@@ -70,11 +90,7 @@
                 <exclusion>
                     <artifactId>commons-compress</artifactId>
                     <groupId>or
-                        <?m2e execute onConfiguration?>g.apache.commons</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
+                                                                                                                        <?m2e execute onConfiguration?>g.apache.commons</groupId>
                 </exclusion>
                 <exclusion>
                     <artifactId>avro</artifactId>
@@ -106,8 +122,14 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.8</version>
+            <version>7.6.0</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
@@ -136,7 +158,6 @@
                         <goals>
                             <goal>idl-protocol</goal>
                         </goals>
-
                     </execution>
                 </executions>
             </plugin>
